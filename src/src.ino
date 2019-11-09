@@ -1,3 +1,11 @@
+/***********************************************************
+*   File:    src.ino                                       *
+*   Authors: William Torres     || @williamtorres1         *
+*            Arthur Brito       || @ArthurBrito1           *
+*            Gabriel Pedro                                 *
+*            Guilherme Vinícius || @Swagmaster696969       *
+***********************************************************/
+
 // definição dos pinos   MOTOR 1
 const int sentido_CW1 = 2;//pinos
 const int clock1 = 3; 
