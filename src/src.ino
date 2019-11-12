@@ -85,7 +85,7 @@ void loop() {
   {
     if(numero_pulsos1 != 0 )
     {
-      digitalWrite(clock1,HIGH);//substituir por clock
+      digitalWrite(clock1,HIGH);
     }
     if(numero_pulsos2 != 0 )
     {
