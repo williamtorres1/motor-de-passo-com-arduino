@@ -70,5 +70,7 @@ O que é esse tempo? a diferença entre os dois delays realizar um pulso.
 Então, o delay do pulso será metade do tempo.
 
 ```
-    delay(T/2)
+{
+   delay(T/2)
+}
 ```
