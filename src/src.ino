@@ -5,67 +5,76 @@
 *            Gabriel Pedro                                 *
 *            Guilherme Vinícius || @Swagmaster696969       *
 ************************************************************/
+// definição do tempo mínimo
+const int tempoMinimo = 0.000005;
 
 // definição dos pinos   MOTOR 1
-const int sentido_CW1 = 2;//pinos
-const int clock1 = 3; 
-const int enable1 = 4;
+const int sentidoRotacaoMotor1 = 12;//pinos
+const int clockMotor1 = 11; 
+const int enableMotor1 = 13;
 
 // definição dos pinos   MOTOR2
-const int sentido_CW2 = 5;//pinos
-const int clock2 = 6; 
-const int enable2 = 7;
+const int sentidoRotacaoMotor2 = 9;//pinos
+const int clockMotor2 = 10; 
+const int enableMotor2 = 8;
 
 
 // definição dos pinos   MOTOR3
-const int sentido_CW3 = 9;//pinos
-const int clock3 = 10; 
-const int enable3 = 8;
+const int sentidoRotacaoMotor3 = 6;//pinos
+const int clockMotor3 = 7; 
+const int enableMotor3 = 5;
 void setup() {
   
   // Define os dois pinos como Saídas
 
   /**MOTOR 1**/
-  pinMode(sentido_CW1,OUTPUT);
-  pinMode(clock1,OUTPUT);
-  pinMode(enable1,OUTPUT);
-  digitalWrite(enable1,LOW);
-  digitalWrite(sentido_CW1,LOW);
+  pinMode(sentidoRotacaoMotor1,OUTPUT);
+  pinMode(clockMotor1,OUTPUT);
+  pinMode(enableMotor1,OUTPUT);
+  digitalWrite(enableMotor1,LOW);
+  digitalWrite(sentidoRotacaoMotor1,LOW);
 
   /**MOTOR 2**/
-  pinMode(sentido_CW2,OUTPUT);
-  pinMode(clock2,OUTPUT);
-  pinMode(enable2,OUTPUT);
-  digitalWrite(enable2,LOW);
-  digitalWrite(sentido_CW2,HIGH);
+  pinMode(sentidoRotacaoMotor2,OUTPUT);
+  pinMode(clockMotor2,OUTPUT);
+  pinMode(enableMotor2,OUTPUT);
+  digitalWrite(enableMotor2,LOW);
+  digitalWrite(sentidoRotacaoMotor2,HIGH);
 
   /**MOTOR 3**/
-  pinMode(sentido_CW3,OUTPUT);
-  pinMode(clock3,OUTPUT);
-  pinMode(enable3,OUTPUT);
-  digitalWrite(enable3,LOW);
-  digitalWrite(sentido_CW3,LOW);
+  pinMode(sentidoRotacaoMotor3,OUTPUT);
+  pinMode(clockMotor3,OUTPUT);
+  pinMode(enableMotor3,OUTPUT);
+  digitalWrite(enableMotor3,LOW);
+  digitalWrite(sentidoRotacaoMotor3,LOW);
 
   //Serial.begin(9600);
 }
 void loop() {
   
   
-  unsigned int quantidade_voltas_motor1 = 20;
-  unsigned int quantidade_voltas_motor2 = 20;
-  unsigned int quantidade_voltas_motor3 = 20;
-  unsigned int numero_pulsos1 = 0;
-  unsigned int numero_pulsos2 = 0;
-  unsigned int numero_pulsos3 = 0;
+  unsigned int quantidadeVoltasMotor1 = 50;
+  unsigned int quantidadeVoltasMotor2 = 20;
+  unsigned int quantidadeVoltasMotor3 = 5;
+  unsigned int numeroPulsosMotor1 = 0;
+  unsigned int numeroPulsosMotor2 = 0;
+  unsigned int numeroPulsosMotor3 = 0;
+  float tempo1 = 0;
+  float tempo2 = 0;
+  float tempo3 = 0;
+  unsigned int velocidadeMotor1 = 500;
+  unsigned int velocidadeMotor2 = 900;
+  unsigned int velocidadeMotor3 = 3000;
+  
 //  Serial.print("Digite a quantidade de voltas do motor 1: ");
   //quantidade_voltas_motor1 = input
-
+  //input da velocidade
 //  Serial.print("Digite a quantidade de voltas do motor 2: ");
   //quantidade_voltas_motor2 = input
-
+  //input da velocidade
 //  Serial.print("Digite a quantidade de voltas do motor 3: ");
   //quantidade_voltas_motor3 = input
-
+  //input da velocidade
 
   //validação
 
@@ -73,53 +82,63 @@ void loop() {
 //conversao
 
 
-  numero_pulsos1 = 200 * quantidade_voltas_motor1;
-  numero_pulsos2 = 200 * quantidade_voltas_motor2;
-  numero_pulsos3 = 200 * quantidade_voltas_motor3;
+  numeroPulsosMotor1 = 200 * quantidadeVoltasMotor1;
+  numeroPulsosMotor2 = 200 * quantidadeVoltasMotor2;
+  numeroPulsosMotor3 = 200 * quantidadeVoltasMotor3;
+  
+//conversao
+  tempo1 = 0.0001/velocidadeMotor1;
+  tempo2 = 0.0001/velocidadeMotor2;
+  tempo3 = 0.0001/velocidadeMotor3;
 
+//validação do time
+  if(tempo1 <= 0.000005)
+  {
+    tempo1 = 0.00005;
+  }
 
-
+ if(tempo2 <= 0.000005)
+  {
+    tempo2 = 0.00005;
+  }
+ if(tempo3 <= 0.000005)
+  {
+    tempo3 = 0.00005;
+  }
   //loop infinito
 
   while(1)
   {
-    if(numero_pulsos1 != 0 )
+    if(numeroPulsosMotor1 != 0 )
     {
-      digitalWrite(clock1,HIGH);
+      digitalWrite(clockMotor1,HIGH);
+      delayMicroseconds(tempo1/2);
+      digitalWrite(clockMotor1,LOW);
+      delayMicroseconds(tempo1/2);
+      numeroPulsosMotor1 --;
     }
-    if(numero_pulsos2 != 0 )
+    if(numeroPulsosMotor2 != 0 )
     {
-      digitalWrite(clock2,HIGH);
+      digitalWrite(clockMotor2,HIGH);
+       delayMicroseconds(tempo2/2);
+      digitalWrite(clockMotor2,LOW);
+      delayMicroseconds(tempo2/2);
+      numeroPulsosMotor2 --;
     }
-    if(numero_pulsos3 != 0 )
+    if(numeroPulsosMotor3 != 0 )
     {
-      digitalWrite(clock3,HIGH);
+      digitalWrite(clockMotor3,HIGH);
+      delayMicroseconds(tempo3/2);
+      digitalWrite(clockMotor3,LOW);
+      delayMicroseconds(tempo3/2);
+      numeroPulsosMotor3 --;
     }
-
-    delay(5);
-
-    if(numero_pulsos1 != 0 )
-    {
-      digitalWrite(clock1,LOW);
-      numero_pulsos1--;
-    }
-    if(numero_pulsos2 != 0 )
-    {
-      digitalWrite(clock2,LOW);
-      numero_pulsos2--;
-    }
-    if(numero_pulsos3 != 0 )
-    {
-      digitalWrite(clock3,LOW);
-      numero_pulsos3--;
-    }
-      delay(5);
-    if(numero_pulsos1 == 0 && numero_pulsos2 == 0 && numero_pulsos3 == 0)
+    if(numeroPulsosMotor1 == 0 && numeroPulsosMotor2 == 0 && numeroPulsosMotor3 == 0)
     {
       //digitalWrite enable high(para desativar os drivers)
-      digitalWrite(enable1,HIGH);
-      digitalWrite(enable2,HIGH);
-      digitalWrite(enable3,HIGH);
+      digitalWrite(enableMotor1,HIGH);
+      digitalWrite(enableMotor2,HIGH);
+      digitalWrite(enableMotor3,HIGH);
     }
     
     
