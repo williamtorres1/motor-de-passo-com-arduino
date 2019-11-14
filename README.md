@@ -3,6 +3,7 @@
 Este repositório foi criado para versionar e armazenar o código da primeira avaliação da disciplina de Robótica.
 
 Os equipamentos utilizados foram:
+
         3 Drivers XXXXX (os nomes serão inseridos em breve, quando tivermos conhecimento).
         3 Motores de Passo.
         1 Arduino UNO.
