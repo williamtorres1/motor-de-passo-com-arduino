@@ -5,24 +5,22 @@
 *            Gabriel Pedro                                 *
 *            Guilherme Vinícius || @Swagmaster696969       *
 ************************************************************/
-// definição do tempo mínimo
-const int tempoMinimo = 0.000005;
 
 // definição dos pinos   MOTOR 1
+const int clockMotor1 = 2;
 const int sentidoRotacaoMotor1 = 3;//pinos
-const int clockMotor1 = 2; 
 const int enableMotor1 = 4;
 
 // definição dos pinos   MOTOR2
+const int enableMotor2 = 5;
 const int sentidoRotacaoMotor2 = 6;//pinos
 const int clockMotor2 = 7; 
-const int enableMotor2 = 5;
 
 
 // definição dos pinos   MOTOR3
+const int enableMotor3 = 8;
 const int sentidoRotacaoMotor3 = 9;//pinos
 const int clockMotor3 = 10; 
-const int enableMotor3 = 8;
 
 
 unsigned int tempo1 = 0;
@@ -32,20 +30,16 @@ unsigned int tempo3 = 0;
 
 void setup() {
 
-  tempo1 = millis();
-  tempo2 = millis();
-  tempo3 = millis();
-
-
-  
-  // Define os dois pinos como Saídas
+  tempo1 = 0;
+  tempo2 = 0;
+  tempo3 = 0;
 
   /**MOTOR 1**/
   pinMode(sentidoRotacaoMotor1,OUTPUT);
   pinMode(clockMotor1,OUTPUT);
   pinMode(enableMotor1,OUTPUT);
   digitalWrite(enableMotor1,LOW);
-  digitalWrite(sentidoRotacaoMotor1,LOW);
+  digitalWrite(sentidoRotacaoMotor1,HIGH);
 
   /**MOTOR 2**/
   pinMode(sentidoRotacaoMotor2,OUTPUT);
@@ -60,36 +54,34 @@ void setup() {
   pinMode(enableMotor3,OUTPUT);
   digitalWrite(enableMotor3,LOW);
   digitalWrite(sentidoRotacaoMotor3,HIGH);
-
-  //Serial.begin(9600);
 }
 void loop() {
   
   
-  unsigned int quantidadeVoltasMotor1 = 50;
-  unsigned int quantidadeVoltasMotor2 = 0;
-  unsigned int quantidadeVoltasMotor3 = 0;
+  unsigned int quantidadeVoltasMotor1 = 10;
+  unsigned int quantidadeVoltasMotor2 = 10;
+  unsigned int quantidadeVoltasMotor3 = 10;
 
   unsigned int numeroPulsosMotor1 = 0;
   unsigned int numeroPulsosMotor2 = 0;
   unsigned int numeroPulsosMotor3 = 0;
 
-  unsigned int velocidadeMotor1 = 20;//velocidade em tempo - inverso da frequencia
-  unsigned int velocidadeMotor2 = 50;
-  unsigned int velocidadeMotor3 = 10;  
+  unsigned int velocidadeMotor1 = 1;//velocidade em tempo - inverso da frequencia
+  unsigned int velocidadeMotor2 = 1;
+  unsigned int velocidadeMotor3 = 1;  
 
 //conversao
 
 
-  numeroPulsosMotor1 = 200 * quantidadeVoltasMotor1;
-  numeroPulsosMotor2 = 200 * quantidadeVoltasMotor2;
-  numeroPulsosMotor3 = 200 * quantidadeVoltasMotor3;
+  numeroPulsosMotor1 = 100 * quantidadeVoltasMotor1;
+  numeroPulsosMotor2 = 100 * quantidadeVoltasMotor2;
+  numeroPulsosMotor3 = 100 * quantidadeVoltasMotor3;
 
   while(1)
   {
     if(numeroPulsosMotor1 != 0 )
     {
-      if(millis() - tempo1 >= velocidadeMotor1 && (millis() - tempo1) <= (velocidadeMotor1 + 5))
+      if(millis() - tempo1 >= velocidadeMotor1)
       {
         digitalWrite(clockMotor1,HIGH);
         tempo1 = millis();
@@ -110,7 +102,7 @@ void loop() {
       }
       if(millis() - tempo2 >= velocidadeMotor2)
       {
-        digitalWrite(clockMotor1,LOW);
+        digitalWrite(clockMotor2,LOW);
         numeroPulsosMotor2--;
       }
     }
