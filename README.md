@@ -4,8 +4,8 @@ Este repositório foi criado para versionar e armazenar o código da primeira av
 
 Os equipamentos utilizados foram:
 
-        3 Drivers XXXXX (os nomes serão inseridos em breve, quando tivermos conhecimento).
-        3 Motores de Passo.
+        3 Drivers TB6560 v2.
+        3 Motores de Passo - UNIPOLAR 9kg - nema23 - BIPOLAR 12kgf - nema23.
         1 Arduino UNO.
         1 Fonte para alimentação dos motores (especificações em breve).
         Fios para conexões.
@@ -71,6 +71,15 @@ Então, o delay do pulso será metade do tempo.
 
 ```
 {
-   delay(T/2)
+   if(millis() - tempo1 >= velocidadeMotor1)
+      {
+        digitalWrite(clockMotor1,HIGH);
+        tempo1 = millis();
+      }
+      if(millis() - tempo1 >= velocidadeMotor1)
+      {
+        digitalWrite(clockMotor1,LOW);
+        numeroPulsosMotor1--;
+      }
 }
 ```
