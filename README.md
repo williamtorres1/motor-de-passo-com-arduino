@@ -66,20 +66,23 @@ Deduzindo, teremos que:
 ```
 A velocidade será inserida pelo usuário. Então teremos o valor do tempo.
 
-O que é esse tempo? a diferença entre os dois delays realizar um pulso.
-Então, o delay do pulso será metade do tempo.
+O que é esse tempo? o tempo do começo do período.
+
+Estamos usando a função [millis()](https://www.arduino.cc/reference/pt/language/functions/time/millis/) do arduino.
+Após a verificação entre millis() e a nossa variável tempo, reatribuímos o valor de millis() para a nossa variável.
+Sendo assim, teremos controle da frequência do motor.
 
 ```
 {
-   if(millis() - tempo1 >= velocidadeMotor1)
+   if(millis() - tempo >= velocidadeMotor)
       {
-        digitalWrite(clockMotor1,HIGH);
-        tempo1 = millis();
+        clock -> HIGH
+        tempo = millis();
       }
-      if(millis() - tempo1 >= velocidadeMotor1)
+      if(millis() - tempo >= velocidadeMotor)
       {
-        digitalWrite(clockMotor1,LOW);
-        numeroPulsosMotor1--;
+        clock -> LOW
+        numeroPulsosMotor--;
       }
 }
 ```
