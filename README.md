@@ -34,7 +34,7 @@ Logo, se queremos 20 voltas, conseguimos descobrir quandos pulsos nós temos que
         Desliga o pino de clock do motor 1
         delay()
         //Nessa linha de código, concluímos 1 (um) passo. Então iremos decrementar a variável.
-        numero_Pulsos = numero_Pulsos - 1
+        numeroPulsos = numeroPulsos - 1
 
     }
 ```
