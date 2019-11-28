@@ -73,9 +73,9 @@ void loop() {
 //conversao
 
 
-  numeroPulsosMotor1 = 100 * quantidadeVoltasMotor1;
-  numeroPulsosMotor2 = 100 * quantidadeVoltasMotor2;
-  numeroPulsosMotor3 = 100 * quantidadeVoltasMotor3;
+  numeroPulsosMotor1 = 200 * quantidadeVoltasMotor1;
+  numeroPulsosMotor2 = 200 * quantidadeVoltasMotor2;
+  numeroPulsosMotor3 = 200 * quantidadeVoltasMotor3;
 
   while(1)
   {
