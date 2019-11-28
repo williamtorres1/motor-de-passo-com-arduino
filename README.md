@@ -43,9 +43,9 @@ Para fazer os 3 motores irem para posições diferentes, é somente repetir o c�
 ```
     if(numeroPulsosMotor1 == 0 && numeroPulsosMotor2 == 0 && numeroPulsosMotor3 == 0)
         {
-        desativa o driver do motor 1
-        desativa o driver do motor 2
-        desativa o driver do motor 3
+                desativa o driver do motor 1
+                desativa o driver do motor 2
+                desativa o driver do motor 3
         }
 ```
 
