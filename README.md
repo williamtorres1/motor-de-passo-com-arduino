@@ -19,7 +19,7 @@ Porém, precisamos de um tempo entre esse "ligar" e "desligar", senão esse puls
 Logo, utilizamos a função delayMicroseconds(), pois iremos trabalhar na ordem de grandeza dos Microssegundos.
 
 
-# Controle de Posição
+## Controle de Posição
 
 Fizemos o controle de posição dos motores da seguinte forma:
 
@@ -49,7 +49,7 @@ Para fazer os 3 motores irem para posições diferentes, é somente repetir o c�
         }
 ```
 
-# Controle de velocidade
+## Controle de velocidade
 
 O controle de velocidade dos motores já foi mostrado em #Controle de Posição, porém iremos adicionar alguns detalhes.
 
