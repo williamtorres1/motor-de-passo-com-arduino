@@ -4,10 +4,10 @@ Este repositório foi criado para versionar e armazenar o código da primeira av
 
 ## Indice
 
-- [Materiais utilizados](#-materiais-utilizados)
-- [Princípio de funcionamento](#-principio-de-funcionamento)
-- [Controle de posição](#-controle-de-posicao)
-- [Controle de velocidade](#-controle-de-velocidade)
+- [Materiais utilizados](#materiais-utilizados)
+- [Princípio de funcionamento](#princípio-de-funcionamento)
+- [Controle de posição](#controle-de-posição)
+- [Controle de velocidade](#controle-de-velocidade)
 
 ## Materiais utilizados
 
