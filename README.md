@@ -1,14 +1,27 @@
-## Motor-de-Passo-com-Arduino
+# Motor de passo com arduino
 
 Este repositório foi criado para versionar e armazenar o código da primeira avaliação da disciplina de Robótica.
 
+## Tabela de conteúdos
+<!--ts-->
+   * [Materiais utilizados](#-Materiais-utilizados)
+   * [Princípio de funcionamento](#-Princípio-de-funcionamento)
+   * [Controle de Posição](#-Controle-de-posição)
+   * [Controle de velocidade](#-Controle-de-velocidade)
+<!--te-->
+
+## Materiais utilizados
+
 Os equipamentos utilizados foram:
 
-        3 Drivers TB6560 v2.
-        3 Motores de Passo - UNIPOLAR 9kg - nema23 - BIPOLAR 12kgf - nema23.
-        1 Arduino UNO.
-        1 Fonte para alimentação dos motores (especificações em breve).
-        Fios para conexões.
+- 3 Drivers TB6560 v2.
+- 3 Motores de Passo - UNIPOLAR 9kg - nema23 - BIPOLAR 12kgf - nema23.
+- 1 Arduino UNO.
+- 1 Fonte para alimentação dos motores (especificações em breve).
+- Fios para conexões.
+
+
+
 
 ## Princípio de funcionamento
 
@@ -19,14 +32,14 @@ Porém, precisamos de um tempo entre esse "ligar" e "desligar", senão esse puls
 Logo, utilizamos a função delayMicroseconds(), pois iremos trabalhar na ordem de grandeza dos Microssegundos.
 
 
-## Controle de Posição
+## Controle de posição
 
 Fizemos o controle de posição dos motores da seguinte forma:
 
 200 pulsos = 1 volta
 
 Logo, se queremos 20 voltas, conseguimos descobrir quandos pulsos nós temos que enviar para o motor.
-```
+```c++
     if(numeroPulsos != 0 )
     {
         Liga o pino de clock do motor 1
@@ -40,12 +53,12 @@ Logo, se queremos 20 voltas, conseguimos descobrir quandos pulsos nós temos que
 ```
 Para fazer os 3 motores irem para posições diferentes, é somente repetir o código acima. E quando os 3 motores chegarem nas suas posições definidas, iremos desativar os drivers (porque, como são de alta corrente (A), esquentam MUITO).
 
-```
+```c++
     if(numeroPulsosMotor1 == 0 && numeroPulsosMotor2 == 0 && numeroPulsosMotor3 == 0)
         {
-                desativa o driver do motor 1
-                desativa o driver do motor 2
-                desativa o driver do motor 3
+            desativa o driver do motor 1
+            desativa o driver do motor 2
+            desativa o driver do motor 3
         }
 ```
 
@@ -72,7 +85,7 @@ Estamos usando a função [millis()](https://www.arduino.cc/reference/pt/languag
 Após a verificação entre millis() e a nossa variável tempo, reatribuímos o valor de millis() para a nossa variável.
 Sendo assim, teremos controle da frequência do motor.
 
-```
+```c++
 {
    if(millis() - tempo >= velocidadeMotor)
       {
