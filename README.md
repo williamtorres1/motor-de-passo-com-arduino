@@ -2,13 +2,12 @@
 
 Este repositório foi criado para versionar e armazenar o código da primeira avaliação da disciplina de Robótica.
 
-## Tabela de conteúdos
-<!--ts-->
-   * [Materiais utilizados](#-Materiais-utilizados)
-   * [Princípio de funcionamento](#-Princípio-de-funcionamento)
-   * [Controle de Posição](#-Controle-de-posição)
-   * [Controle de velocidade](#-Controle-de-velocidade)
-<!--te-->
+## Indice
+
+- [Materiais utilizados](#-materiais-utilizados)
+- [Princípio de funcionamento](#-principio-de-funcionamento)
+- [Controle de posição](#-controle-de-posicao)
+- [Controle de velocidade](#-controle-de-velocidade)
 
 ## Materiais utilizados
 
@@ -19,9 +18,6 @@ Os equipamentos utilizados foram:
 - 1 Arduino UNO.
 - 1 Fonte para alimentação dos motores (especificações em breve).
 - Fios para conexões.
-
-
-
 
 ## Princípio de funcionamento
 
