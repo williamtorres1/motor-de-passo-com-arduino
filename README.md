@@ -4,11 +4,11 @@ Este repositório foi criado para versionar e armazenar o código da primeira av
 
 Os equipamentos utilizados foram:
 
-        3 Drivers TB6560 v2.
-        3 Motores de Passo - UNIPOLAR 9kg - nema23 - BIPOLAR 12kgf - nema23.
-        1 Arduino UNO.
-        1 Fonte para alimentação dos motores (especificações em breve).
-        Fios para conexões.
+1. 3 Drivers TB6560 v2.
+2. 3 Motores de Passo - UNIPOLAR 9kg - nema23 - BIPOLAR 12kgf - nema23.
+3. 1 Arduino UNO.
+4. 1 Fonte para alimentação dos motores (especificações em breve).
+5. Fios para conexões.
 
 ## Princípio de funcionamento
 
@@ -26,7 +26,7 @@ Fizemos o controle de posição dos motores da seguinte forma:
 200 pulsos = 1 volta
 
 Logo, se queremos 20 voltas, conseguimos descobrir quandos pulsos nós temos que enviar para o motor.
-```
+```c++
     if(numeroPulsos != 0 )
     {
         Liga o pino de clock do motor 1
@@ -40,12 +40,12 @@ Logo, se queremos 20 voltas, conseguimos descobrir quandos pulsos nós temos que
 ```
 Para fazer os 3 motores irem para posições diferentes, é somente repetir o código acima. E quando os 3 motores chegarem nas suas posições definidas, iremos desativar os drivers (porque, como são de alta corrente (A), esquentam MUITO).
 
-```
+```c++
     if(numeroPulsosMotor1 == 0 && numeroPulsosMotor2 == 0 && numeroPulsosMotor3 == 0)
         {
-                desativa o driver do motor 1
-                desativa o driver do motor 2
-                desativa o driver do motor 3
+            desativa o driver do motor 1
+            desativa o driver do motor 2
+            desativa o driver do motor 3
         }
 ```
 
@@ -56,6 +56,7 @@ O controle de velocidade dos motores já foi mostrado em #Controle de Posição,
 Temos conhecimento que o passo da rosca que será percorrida é de 0,1 mm (10^-4).
 
 Então, pela fórmula de velocidade, teremos:
+[img](http://www.sciweavers.org/tex2img.php?eq=Vm%20%3D%20%20%5CDelta%20S%20%20%5Cdiv%20%5CDelta%20T&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
 ```
     Vm = ΔS/ΔT
     (Speed) = (Space)/(Time)
@@ -72,7 +73,7 @@ Estamos usando a função [millis()](https://www.arduino.cc/reference/pt/languag
 Após a verificação entre millis() e a nossa variável tempo, reatribuímos o valor de millis() para a nossa variável.
 Sendo assim, teremos controle da frequência do motor.
 
-```
+```c++
 {
    if(millis() - tempo >= velocidadeMotor)
       {
