@@ -1,6 +1,15 @@
-## Motor-de-Passo-com-Arduino
+# Motor de passo com arduino
 
 Este repositório foi criado para versionar e armazenar o código da primeira avaliação da disciplina de Robótica.
+
+## Indice
+
+- [Materiais utilizados](#materiais-utilizados)
+- [Princípio de funcionamento](#princípio-de-funcionamento)
+- [Controle de posição](#controle-de-posição)
+- [Controle de velocidade](#controle-de-velocidade)
+
+## Materiais utilizados
 
 Os equipamentos utilizados foram:
 
@@ -9,7 +18,6 @@ Os equipamentos utilizados foram:
 3. 1 Arduino UNO.
 4. 1 Fonte para alimentação dos motores (especificações em breve).
 5. Fios para conexões.
-
 ## Princípio de funcionamento
 
 Para um motor de passo funcionar, é preciso Ligar e Desligar o clock. Esta ação é 1 (um) pulso.
@@ -19,7 +27,7 @@ Porém, precisamos de um tempo entre esse "ligar" e "desligar", senão esse puls
 Logo, utilizamos a função delayMicroseconds(), pois iremos trabalhar na ordem de grandeza dos Microssegundos.
 
 
-## Controle de Posição
+## Controle de posição
 
 Fizemos o controle de posição dos motores da seguinte forma:
 
