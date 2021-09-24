@@ -64,7 +64,7 @@ O controle de velocidade dos motores já foi mostrado em #Controle de Posição,
 Temos conhecimento que o passo da rosca que será percorrida é de 0,1 mm (10^-4).
 
 Então, pela fórmula de velocidade, teremos:
-[img](http://www.sciweavers.org/tex2img.php?eq=Vm%20%3D%20%20%5CDelta%20S%20%20%5Cdiv%20%5CDelta%20T&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
+![Fórmula da Velocidade Média](http://www.sciweavers.org/tex2img.php?eq=Vm%20%3D%20%20%5CDelta%20S%20%20%5Cdiv%20%5CDelta%20T&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
 ```
     Vm = ΔS/ΔT
     (Speed) = (Space)/(Time)
